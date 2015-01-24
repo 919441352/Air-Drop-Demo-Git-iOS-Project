@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic,strong) NSString *fileInfo;
+@property (nonatomic,strong) NSURL *pathURL;
+
+- (IBAction)sendFileTapped:(id)sender;
+
 
 @end
 

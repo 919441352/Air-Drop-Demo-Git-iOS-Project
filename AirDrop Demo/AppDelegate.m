@@ -20,6 +20,20 @@
     return YES;
 }
 
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //Load an NSString with the Contents the file
+    NSString *str=[NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    
+    //Do something with the String
+    NSString *message=[NSString stringWithFormat:@"Content %@",str];
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"File Recieved" message:message delegate:self cancelButtonTitle:@"Thank You" otherButtonTitles:nil];
+    [alert show];
+    return YES;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
